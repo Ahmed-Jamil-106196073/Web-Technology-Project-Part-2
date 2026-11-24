@@ -148,15 +148,9 @@ try {
     <style>.jobs-intro { max-width: 700px; margin: 0 auto 50px; }</style>
 </head>
 <body>
-<header class="site-header">
-    <a href="index.html" class="brand"><img src="Images/logo.png" alt="Creative Digital Media Agency Logo" class="site-logo"></a>
-    <nav aria-label="Main navigation"><ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="jobs.php" aria-current="page">Job List</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about.html">About</a></li>
-    </ul></nav>
-</header>
+
+<?php include 'includes/header.inc'; ?>
+
 <main>
     <section class="hero jobs-hero">
         <p class="eyebrow">WE'RE HIRING</p>
@@ -227,16 +221,15 @@ try {
                                 <li><?= escapeHtml($item) ?></li>
                             <?php endforeach; ?>
                         </ul>
-                        <a href="apply.html?job_reference=<?= rawurlencode((string) $job['reference']) ?>" class="button" style="margin-top: 10px;">Apply for this role &rarr;</a>
+                        <a href="apply.php?job_reference=<?= rawurlencode((string) $job['reference']) ?>" class="button" style="margin-top: 10px;">Apply for this role &rarr;</a>
                     </section>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </section>
 </main>
-<footer class="site-footer">
-    <a href="index.html" class="brand footer-brand"><img src="Images/logo.png" alt="Creative Digital Media Agency Logo" class="footer-logo"></a>
-    <p>&copy; 2026 Creative Digital Media Agency. All rights reserved.</p>
-</footer>
+
+<?php include 'includes/footer.inc'; ?>
+
 </body>
 </html>
