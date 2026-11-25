@@ -1,3 +1,4 @@
+<?php require_once("settings.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,25 +31,7 @@
 <body>
 
     <!-- HEADER -->
-    <header class="site-header">
-
-        <a href="index.html" class="brand">
-            <img
-                src="images/logo.png"
-                alt="Creative Digital Media Agency Logo"
-                class="site-logo">
-        </a>
-
-        <nav aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.php">Job List</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="about.html" aria-current="page">About</a></li>
-            </ul>
-        </nav>
-
-    </header>
+<?php include 'includes/header.inc'; ?>
 
 
     <main>
@@ -368,93 +351,27 @@
             </p>
 
             <!-- Definition List -->
-            <dl class="contributions-list">
+           <dl class="contributions-list">
+    <?php
+    $sql = "SELECT full_name, project_role, contribution FROM team_members ORDER BY member_id ASC";
+    $result = $conn->query($sql);
 
-                <!-- MEMBER 1 -->
-                <div class="member-card">
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo '<div class="member-card">';
+            echo '<dt>' . htmlspecialchars($row['full_name']) . '</dt>';
+            echo '<dd class="student-id"><strong>Role:</strong> ' . htmlspecialchars($row['project_role']) . '</dd>';
+            echo '<dd><strong>Contribution:</strong> ' . htmlspecialchars($row['contribution']) . '</dd>';
+            echo '</div>';
+        }
+        $result->free();
+    } else {
+        echo '<p>No team member records found.</p>';
+    }
+    $conn->close();
+    ?>
+</dl>
 
-                    <dt>Ali Musaid</dt>
-
-                    <dd class="student-id">
-                        Student ID: 106225265
-                    </dd>
-
-                    <dd>
-                        <strong>Contribution:</strong>
-                        CSS Developer
-                    </dd>
-
-                </div>
-
-
-                <!-- MEMBER 2 -->
-                <div class="member-card">
-
-                    <dt>Lazaro</dt>
-
-                    <dd class="student-id">
-                        Student ID: 106916187
-                    </dd>
-
-                    <dd>
-                        <strong>Contribution:</strong>
-                        About Page Developer &amp; Quality Tester
-                    </dd>
-
-                </div>
-
-
-                <!-- MEMBER 3 -->
-                <div class="member-card">
-
-                    <dt>Abdulrahman Shehada</dt>
-
-                    <dd class="student-id">
-                        Student ID: 106640017
-                    </dd>
-
-                    <dd>
-                        <strong>Contribution:</strong>
-                        Job Listings Page Developer
-                    </dd>
-
-                </div>
-
-
-                <!-- MEMBER 4 -->
-                <div class="member-card">
-
-                    <dt>Ahmed Jamil</dt>
-
-                    <dd class="student-id">
-                        Student ID: 106196073
-                    </dd>
-
-                    <dd>
-                        <strong>Contribution:</strong>
-                        Project Manager &amp; Home Page Developer
-                    </dd>
-
-                </div>
-
-
-                <!-- MEMBER 5 -->
-                <div class="member-card">
-
-                    <dt>Taim Ataallah</dt>
-
-                    <dd class="student-id">
-                        Student ID: 106194433
-                    </dd>
-
-                    <dd>
-                        <strong>Contribution:</strong>
-                        Application Form Developer
-                    </dd>
-
-                </div>
-
-            </dl>
 
         </section>
 
@@ -549,7 +466,7 @@
 
             <!-- Inline CSS -->
             <a
-                href="apply.html"
+                href="apply.php"
                 class="button button-light"
                 style="margin-top: 15px;">
                 Apply Now &rarr;
@@ -561,23 +478,7 @@
 
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-
-        <a href="index.html" class="brand footer-brand">
-
-            <img
-                src="images/logo.png"
-                alt="Creative Digital Media Agency Logo"
-                class="footer-logo">
-
-        </a>
-
-        <p>
-            &copy; 2026 Creative Digital Media Agency.
-            All rights reserved.
-        </p>
-
-    </footer>
+<?php include 'includes/footer.inc'; ?>
 
 </body>
 </html>

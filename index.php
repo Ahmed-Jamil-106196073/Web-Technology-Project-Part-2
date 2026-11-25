@@ -26,25 +26,7 @@
 <body>
 
     <!-- HEADER -->
-    <header class="site-header">
-
-        <a href="index.html" class="brand">
-            <img
-                src="Images/logo.png"
-                alt="Creative Digital Media Agency Logo"
-                class="site-logo">
-        </a>
-
-        <nav aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="jobs.php">Job List</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-
-    </header>
+<?php include 'includes/header.inc'; ?>
 
 
     <main>
@@ -102,7 +84,7 @@
                     to successful digital projects.
                 </p>
 
-                <a href="about.html" class="button">
+                <a href="about.php" class="button">
                     Learn More About Us
                 </a>
 
@@ -223,7 +205,7 @@
                     View Available Jobs &rarr;
                 </a>
 
-                <a href="apply.html" class="button home-secondary-button">
+                <a href="apply.php" class="button home-secondary-button">
                     Apply Now
                 </a>
 
@@ -440,57 +422,8 @@
 
 
     <!-- FOOTER -->
-    <footer class="site-footer">
 
-        <div class="footer-content">
-
-            <a href="index.html" class="brand footer-brand">
-
-                <img
-                    src="Images/logo.png"
-                    alt="Creative Digital Media Agency Logo"
-                    class="footer-logo">
-
-            </a>
-
-            <div class="footer-links">
-
-                <!-- EMAIL LINK -->
-                <a href="mailto:info@creativedigitalmedia.com">
-                    info@creativedigitalmedia.com
-                </a>
-
-                <!-- GITHUB REPOSITORY LINK -->
-                <a
-                    href="https://github.com/Ahmed-Jamil-106196073/Web-Technology-Project-Part-1v2"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    GitHub Repository
-                </a>
-
-                <!-- JIRA PROJECT LINK -->
-                <a
-                    href="https://taimataallah.atlassian.net/jira/software/projects/CDMA/summary"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Jira Project
-                </a>
-
-                <!-- Replace # with your GitHub Pages URL -->
-                <a href="#">
-                    Live Website
-                </a>
-
-            </div>
-
-            <p>
-                &copy; 2026 Creative Digital Media Agency.
-                All rights reserved.
-            </p>
-
-        </div>
-
-    </footer>
+    <?php include 'includes/footer.inc'; ?>
 
 </body>
 </html>
